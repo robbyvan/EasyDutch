@@ -40,9 +40,9 @@ class App extends Component {
     //   return <BootPage />;
     // }
 
-    // if (!state.userLoginStatus) {
-    //   return <Login />;
-    // }
+    if (!state.userLoginStatus) {
+      return <Login />;
+    }
 
     return <Tabs />;
   }

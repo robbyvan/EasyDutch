@@ -42,7 +42,7 @@ class Login extends Component {
       return;
     }
 
-    // actions.signin(username, password);
+    actions.login(username, password);
   }
 
   render() {
