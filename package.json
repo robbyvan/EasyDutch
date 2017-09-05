@@ -6,11 +6,13 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
 		"lint": "eslint . --fix --ignore-path .gitignore --format=node_modules/eslint-formatter-pretty",
-    "lint-validate": "eslint .  --ignore-path .gitignore  --quiet"
+		"lint-validate": "eslint .  --ignore-path .gitignore  --quiet"
 	},
 	"dependencies": {
 		"babel-preset-react-native": "2.1.0",
+		"mockjs": "^1.0.1-beta3",
 		"moment": "^2.18.1",
+		"query-string": "^5.0.0",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.48.1",
 		"react-native-actionsheet": "^2.2.2",

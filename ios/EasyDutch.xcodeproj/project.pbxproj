@@ -247,14 +247,22 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+<<<<<<< HEAD
 		D51C1F371F5F0B3900A20F8F /* PBXContainerItemProxy */ = {
+=======
+		D51C1F111F5F040F00A20F8F /* PBXContainerItemProxy */ = {
+>>>>>>> Easy-Dutch
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = ADD01A681E09402E00F6D226;
 			remoteInfo = "RCTBlob-tvOS";
 		};
+<<<<<<< HEAD
 		D51C1F481F5F0B3900A20F8F /* PBXContainerItemProxy */ = {
+=======
+		D51C1F221F5F040F00A20F8F /* PBXContainerItemProxy */ = {
+>>>>>>> Easy-Dutch
 			isa = PBXContainerItemProxy;
 			containerPortal = D96A7109E8A64C93ACD87098 /* RNVectorIcons.xcodeproj */;
 			proxyType = 2;
@@ -540,15 +548,26 @@
 			isa = PBXGroup;
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
+<<<<<<< HEAD
 				D51C1F381F5F0B3900A20F8F /* libRCTBlob-tvOS.a */,
+=======
+				D51C1F121F5F040F00A20F8F /* libRCTBlob-tvOS.a */,
+>>>>>>> Easy-Dutch
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		D51C1F301F5F0B3900A20F8F /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D51C1F491F5F0B3900A20F8F /* libRNVectorIcons.a */,
+=======
+		D51C1F0A1F5F040F00A20F8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D51C1F231F5F040F00A20F8F /* libRNVectorIcons.a */,
+>>>>>>> Easy-Dutch
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -730,7 +749,11 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
 					ProductGroup = D51C1F301F5F0B3900A20F8F /* Products */;
+=======
+					ProductGroup = D51C1F0A1F5F040F00A20F8F /* Products */;
+>>>>>>> Easy-Dutch
 					ProjectRef = D96A7109E8A64C93ACD87098 /* RNVectorIcons.xcodeproj */;
 				},
 			);
@@ -927,6 +950,7 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+<<<<<<< HEAD
 		D51C1F381F5F0B3900A20F8F /* libRCTBlob-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -939,6 +963,20 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = D51C1F481F5F0B3900A20F8F /* PBXContainerItemProxy */;
+=======
+		D51C1F121F5F040F00A20F8F /* libRCTBlob-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTBlob-tvOS.a";
+			remoteRef = D51C1F111F5F040F00A20F8F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51C1F231F5F040F00A20F8F /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = D51C1F221F5F040F00A20F8F /* PBXContainerItemProxy */;
+>>>>>>> Easy-Dutch
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
