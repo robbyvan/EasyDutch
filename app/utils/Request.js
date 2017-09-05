@@ -1,3 +1,4 @@
+import { AsyncStorage, Alert } from 'react-native';
 import queryString from 'query-string';
 import Config from './Config';
 
@@ -6,7 +7,7 @@ const request = {};
 request.get = (api, params) => new Promise(async(resolve, rejcet) => {
   let completeUrl = Config.server + api;
   if (params) {
-    completeUrl = `?${queryString.stringify(params)}`
+    completeUrl = `${completeUrl}?${queryString.stringify(params)}`
   }
   console.log('发送GET至:', completeUrl);
 

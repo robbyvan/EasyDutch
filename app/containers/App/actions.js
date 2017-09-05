@@ -1,7 +1,8 @@
 import { AsyncStorage, Alert } from 'react-native';
 import * as at from '../../constants/actionTypes';
+import Request from '../../utils/Request';
 
-export function AsyncAppStatus() {
+export function asyncAppStatus() {
   return async (dispatch) => {
     // Start syncing
     dispatch({ type: at.SET_APP_BOOTED, payload: false });
@@ -10,7 +11,7 @@ export function AsyncAppStatus() {
     user = JSON.parse(user);
     // check if session expired
     if (user && user.token) {
-      const checkExpiration = await Request.get('/GoDutch/checkExpiration');
+      const checkExpiration = await Request.get('/ezdutch/expires', {token: 'sometoken'});
       if (!checkExpiration.success) {
         // expired
         AsyncStorage.removeItem('user');
