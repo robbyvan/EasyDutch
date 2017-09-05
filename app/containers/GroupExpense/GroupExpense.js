@@ -42,69 +42,17 @@ class Group extends Component {
     return { ...headerStyle, headerRight };
   };
 
-  constructor() {
-    super();
-    that = this;
-  }
-
   componentWillMount() {
-    this.props.actions.setDefaultGroups();
-    this.props.actions.fetchMyGroups();
-  }
-
-  renderItem({ item, index }) {
-    // const { navigation } = that.props;
-    const avatarColors = ['#C4C095', '#FFDFB5', '#9FE0B7', '#F5AFA3', '#92C3DE'];
-    const textAvatar = (
-      <View style={[style.iconWrapper, { backgroundColor: avatarColors[index % 5] }]}>
-        <Text style={style.iconText}>
-          {item.name.trim().charAt(0)}
-        </Text>
-      </View>
-    );
-    const rowContent = (
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <Text style={[style.nameText, {flex: 1, alignSelf: 'center'}]}>
-          {item.name.trim()}
-        </Text>
-        <Text style={{flex: 1, alignSelf: 'center', color: 'gray'}}>
-          {moment(item.lastUpdated).format('MM/DD HH:mm')}
-        </Text>
-      </View>
-    );
-    return (
-      <ListItem
-        onPress={() => that.props.navigation.navigate('GroupExpense', { groupID: item.groupID })}
-        key={item.groupID}
-        title={rowContent}
-        leftIcon={textAvatar}
-      />
-    );
-  }
-
-  handleRefresh() {
-    this.props.actions.refreshMyGroups();
+    // this.props.actions.fetchGroupExpense();
   }
 
   render() {
     const { user, state } = this.props;
-    if (state.isFetchingMyGroups && !state.isRefreshingMyGroups) {
+    if (state.isFetchingGroupExpense && !state.isRefreshingExpense) {
       return <BootPage />
     }
     return (
-      <ScrollView
-        style={style.container}
-        refreshControl={
-          <RefreshControl
-            refreshing={state.isFetchingMyGroups}
-            onRefresh={() => this.handleRefresh()}
-            tintColor="#8f8f8f"
-            title="Update"
-          />
-        }
-        showsVerticalScrollIndicator={false}
-        automaticallyAdjustContentInsets={false}
-      >
+      <ScrollView style={style.container}>
         {state.myGroups.length === 0 &&
           <View>
             <Text>No groups yet</Text>

@@ -1,16 +1,25 @@
+import { AsyncStorage } from 'react-native';
+import moment from 'moment';
 import * as at from '../../constants/actionTypes';
 
 const initialState = {
-  groups: []
+  myGroups: [],
+  isFetchingMyGroups: false,
+  isRefreshingMyGroups: false,
 };
 
 const groupReducer = (state=initialState, action) => {
   switch (action.type) {
-    case at.SET_GROUPS:
-      return { ...state, groups: action.payload };
+    case at.SET_MY_GROUPS:
+      return { ...state, myGroups: action.payload };
+    case at.SET_IS_FETCHING_MY_GROUPS:
+      return { ...state, isFetchingMyGroups: action.payload };
+    case at.SET_IS_REFRESHING_MY_GROUPS:
+      return { ...state, isRefreshingMyGroups: action.payload };
     default:
       return state;
   }
 };
 
 export default groupReducer;
+
