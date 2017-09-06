@@ -13,7 +13,8 @@ import style, { custom, headerStyle } from './style';
 
 function mapStateToProps(store) {
   return {
-    state: store.group,
+    state: store.chosenGroup,
+    user: store.app.user,
   };
 }
 
@@ -43,33 +44,24 @@ class Group extends Component {
   };
 
   componentWillMount() {
-    // this.props.actions.fetchGroupExpense();
+    const { actions, state, user } = this.props;
+    actions.setDefaultChosenGroup('130000198905318650', user);
+    actions.fetchChosenGroup('130000198905318650', user);
   }
 
   render() {
     const { user, state } = this.props;
-    if (state.isFetchingGroupExpense && !state.isRefreshingExpense) {
+    if (state.isFetchingChosenGroup) {
       return <BootPage />
     }
     return (
       <ScrollView style={style.container}>
-        {state.myGroups.length === 0 &&
+        <Text>Chosen Group {state.chosenGroupID}</Text>
+        {state.myBill && state.myBill.shouldPay &&
           <View>
-            <Text>No groups yet</Text>
-            <Button
-              title='Join a group now'
-              borderRadius={6}
-              backgroundColor={custom.buttonColor}
-              textStyle={custom.buttonText}
-            />
+            <Text>Need Pay: ${state.myBill.totalPay}</Text>
+            <Text>Could Earn: ${state.myBill.totalEarn}</Text>
           </View>
-        }
-        {state.myGroups.length > 0 &&
-          <FlatList
-            data={state.myGroups}
-            keyExtractor={item => item.groupID}
-            renderItem={this.renderItem}
-          />
         }
       </ScrollView>
     );

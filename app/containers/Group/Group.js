@@ -13,7 +13,7 @@ import style, { custom, headerStyle } from './style';
 
 function mapStateToProps(store) {
   return {
-    state: store.group,
+    state: store.myGroups,
   };
 }
 
@@ -74,7 +74,7 @@ class Group extends Component {
     );
     return (
       <ListItem
-        onPress={() => that.props.navigation.navigate('GroupExpense', { groupID: item.groupID })}
+        onPress={() => that.props.navigation.navigate('ChosenGroup', { groupID: item.groupID })}
         key={item.groupID}
         title={rowContent}
         leftIcon={textAvatar}

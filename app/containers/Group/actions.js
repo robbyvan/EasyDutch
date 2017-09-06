@@ -6,7 +6,7 @@ export function setDefaultGroups() {
   return async dispatch => {
     let storedGroups = await AsyncStorage.getItem('myGroups');
     storedGroups = JSON.parse(storedGroups);
-    dispatch({ type: at.SET_MY_GROUPS, payload: storedGroups });
+    dispatch({ type: at.SET_MY_GROUPS, payload: [] || storedGroups });
   };
 }
 

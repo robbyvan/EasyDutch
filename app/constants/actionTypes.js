@@ -14,7 +14,7 @@ export const SET_IS_FETCHING_MY_GROUPS = 'set_is_fetching_my_groups';
 export const SET_IS_REFRESHING_MY_GROUPS = 'set_is_refreshing_my_groups';
 
 // Group Expense
+export const SET_CHOSEN_GROUP_ID = 'set_chosen_group_id';
 export const SET_CHOSEN_GROUP = 'set_chosen_group';
-export const SET_RAW_RECORDS = 'set_raw_records';
-export const SET_IS_FETCHING_GROUP_EXPENSE = 'set_is_fetching_group_expense';
-export const SET_IS_REFRESHING_GROUP_EXPENSE = 'set_is_refreshing_group_expense';
+export const SET_IS_FETCHING_CHOSEN_GROUP = 'set_is_fetching_chosen_group';
+export const SET_MY_BILL = 'set_my_bill';
