@@ -23,3 +23,5 @@ export const SET_MY_BILL = 'set_my_bill';
 export const SET_SELECTED_GROUP = 'set_selected_group';
 export const SET_TEMP_ORDER_NAME = 'set_temp_order_name';
 export const SET_ORDER_NAME = 'set_order_name';
+export const SET_TEMP_PRICE = 'set_temp_price';
+export const SET_PRICE = 'set_order_price';

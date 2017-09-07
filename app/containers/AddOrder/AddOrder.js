@@ -44,6 +44,14 @@ class AddOrder extends Component {
       headerRight,
     };
   };
+
+  handlePress(row) {
+    if (row === 'SharedWith' && this.props.state.selectedGroup === null) {
+      Alert.alert('Whoops', 'You need to Select a group first');
+    } else {
+      this.props.navigation.navigate(row);
+    }
+  }
   
   render() {
     const { state, navigation, myGroups } = this.props;
@@ -51,7 +59,7 @@ class AddOrder extends Component {
       <ScrollView style={style.container}>
         <List style={{ margin: 0, backgroundColor: '#fff' }}>
           <ListItem
-            onPress={() => navigation.navigate('SelectGroup')}
+            onPress={() => this.handlePress('SelectGroup')}
             leftIcon={
               <EvilIcons name="tag" size={40} color={custom.iconColors[0]} style={{alignSelf: 'center'}} />
             }
@@ -68,7 +76,7 @@ class AddOrder extends Component {
             // hideChevron
           />
           <ListItem
-            onPress={() => navigation.navigate('SetOrderName')}
+            onPress={() => this.handlePress('SetOrderName')}
             leftIcon={
               <EvilIcons name="cart" size={40} color={custom.iconColors[1]} style={{alignSelf: 'center'}} />
             }
@@ -85,15 +93,15 @@ class AddOrder extends Component {
             // hideChevron
           />
           <ListItem
-            onPress={() => Alert.alert('haha')}
+            onPress={() => this.handlePress('SetPrice')}
             leftIcon={
               <EvilIcons name="credit-card" size={40} color={custom.iconColors[2]} style={{alignSelf: 'center'}} />
             }
             title={
               <View style={style.rowContainer}>
                 <Text style={[style.rowLabel, {color: custom.iconColors[2]}]}>Price</Text>
-                {!state.orderName ? (
-                  <Text style={[style.rowValue, {color: 'gray'}]}></Text>
+                {state.price === -1 ? (
+                  <Text style={[style.rowValue, {color: 'gray'}]}>Set Price</Text>
                 ) : (
                 <Text style={[style.rowValue, {color: '#333'}]}>${state.price.toFixed(2)}</Text>
                 )}

@@ -20,3 +20,17 @@ export function setOrderName(name) {
     payload: name,
   };
 }
+
+export function setTempPrice(price) {
+  return {
+    type: at.SET_TEMP_PRICE,
+    payload: price,
+  };
+}
+
+export function setPrice(price) {
+  return {
+    type: at.SET_PRICE,
+    payload: price,
+  };
+}

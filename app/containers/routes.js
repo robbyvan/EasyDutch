@@ -11,6 +11,7 @@ import Me from './Me';
 import AddOrder from './AddOrder';
 import SelectGroup from './AddOrder/components/SelectGroup';
 import SetOrderName from './AddOrder/components/SetOrderName';
+import SetPrice from './AddOrder/components/SetPrice';
 // Styles
 import { themeColor } from '../style';
 
@@ -35,6 +36,9 @@ const MeTab = StackNavigator({
   },
   SetOrderName: {
     screen: SetOrderName,
+  },
+  SetPrice: {
+    screen: SetPrice,
   },
   Me: {
     screen: Me,

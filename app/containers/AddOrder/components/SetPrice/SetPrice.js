@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ScrollView, FlatList, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, ScrollView, FlatList, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -23,7 +23,7 @@ function matchDispatchToProps(dispatch) {
 
 let that;
 @connect(mapStateToProps, matchDispatchToProps)
-class SetOrderName extends Component {
+class SetPrice extends Component {
   static propTypes = {
     state: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
@@ -34,12 +34,20 @@ class SetOrderName extends Component {
       key: navigation.state.key,
     });
 
+    const handleSave = (str) => {
+      // check if number
+      if (/^\d+(\.{0,1}\d+){0,1}$/.test(that.props.state.tempPrice)) {
+        const num = Number(that.props.state.tempPrice);
+        that.props.actions.setPrice(num);
+        navigation.dispatch(backAction);
+      } else {
+        Alert.alert('Whoops', 'Price should be non-negative numbers');
+      }
+    };
+
     const SaveButton = (
       <TouchableOpacity
-        onPress={() => {
-          that.props.actions.setOrderName(that.props.state.tempOrderName)
-          navigation.dispatch(backAction)
-        }}
+        onPress={() => handleSave()}
         style={style.headerRight}
       >
         <Text style={style.headerRightText}>Save</Text>
@@ -59,7 +67,7 @@ class SetOrderName extends Component {
 
   componentDidMount() {
     const { actions, state } = this.props;
-    actions.setTempOrderName(state.orderName);
+    actions.setTempPrice(state.price);
   }
 
   render() {
@@ -75,11 +83,11 @@ class SetOrderName extends Component {
               autoFocus
               underlineColorAndroid="rgba(0, 0, 0, 0)"
               autoCorrect={false}
-              defaultValue={state.orderName}
+              defaultValue={state.price >= 0 && `${state.price}` || ''}
               keyboardType="default"
-              maxLength={16}
+              maxLength={10}
               style={style.textStyle}
-              onChangeText={text => actions.setTempOrderName(text)}
+              onChangeText={text => actions.setTempPrice(text)}
             />
           </View>
         </ScrollView>
@@ -88,4 +96,4 @@ class SetOrderName extends Component {
   }
 }
 
-export default SetOrderName;
+export default SetPrice;

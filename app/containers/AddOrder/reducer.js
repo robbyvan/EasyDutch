@@ -7,7 +7,8 @@ const initialState = {
   tempOrderName: '',
   orderDate: moment().toDate(),
   sharedWith: ['Anqi', 'Luyao'],
-  price: 30,
+  price: -1,
+  tempPrice: -1,
 };
 
 const addOrderReducer = (state=initialState, action) => {
@@ -18,6 +19,10 @@ const addOrderReducer = (state=initialState, action) => {
       return { ...state, tempOrderName: action.payload };
     case at.SET_ORDER_NAME:
       return { ...state, orderName: action.payload };
+    case at.SET_TEMP_PRICE:
+      return { ...state, tempPrice: action.payload };
+    case at.SET_PRICE:
+      return { ...state, price: action.payload };
     default:
       return state;
   }
