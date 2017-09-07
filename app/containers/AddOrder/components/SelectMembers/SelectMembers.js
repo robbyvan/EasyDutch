@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { ListItem, Button } from 'react-native-elements';
 import Entypo from 'react-native-vector-icons/Entypo';
 // Actions
-import * as SelectGroupActions from '../../actions';
+import * as SelectMembersActions from '../../actions';
 import style, { headerStyle, custom } from './style';
 
 function mapStateToProps(store) {
@@ -19,13 +19,13 @@ function mapStateToProps(store) {
 
 function matchDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(SelectGroupActions, dispatch),
+    actions: bindActionCreators(SelectMembersActions, dispatch),
   };
 }
 
 let that;
 @connect(mapStateToProps, matchDispatchToProps)
-class SelectGroup extends Component {
+class SelectMembers extends Component {
   static propTypes = {
     state: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
@@ -38,33 +38,31 @@ class SelectGroup extends Component {
     that = this;
   }
 
-  handlePress(pressedGroup) {
-    const { actions, state, navigation, user } = this.props;
-    if (!state.selectedGroup || pressedGroup.groupID !== state.selectedGroup.groupID) {
-      actions.setSelectedGroup(pressedGroup);
-      actions.resetSharedBy(user.username);
-    }
-    const backAction = NavigationActions.back({
-      key: navigation.state.key,
-    });
-    navigation.dispatch(backAction);
+  componentDidMount() {
+    this.props.actions.resetSharedBy(this.props.user.username);
+  }
+
+  handlePress(pressedMember) {
+    this.props.actions.editSharedBy(pressedMember);
   }
 
   renderItem({ item, index }) {
-    const { state } = that.props;
+    console.log('??', item);
+    const { state, navigation, user } = that.props;
     const avatarColors = ['#A3BFB2', '#AAB7BF', '#B09F85', '#BABF95', '#BE7358'];
     const textAvatar = (
       <View style={[style.iconWrapper, { backgroundColor: avatarColors[index % 5] }]}>
         <Text style={style.iconText}>
-          {item.name.trim().charAt(0).toUpperCase()}
+          {item.trim().charAt(0).toUpperCase()}
         </Text>
       </View>
     );
     const rowContent = (
-      <View style={{flex: 1}}>
-        <Text style={style.nameText}>
-          {item.name.trim()}
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <Text style={[style.nameText, {flex: 1, alignSelf: 'center'}]}>
+          {item.trim()}
         </Text>
+        
       </View>
     );
     const checkMark = (
@@ -78,11 +76,11 @@ class SelectGroup extends Component {
     return (
       <ListItem
         onPress={() => that.handlePress(item)}
-        key={item.groupID}
+        key={item}
         title={rowContent}
         leftIcon={textAvatar}
         rightIcon={checkMark}
-        hideChevron={!state.selectedGroup || state.selectedGroup.groupID !== item.groupID}
+        hideChevron={state.sharedBy.indexOf(item) === -1}
       />
     );
   }
@@ -91,21 +89,11 @@ class SelectGroup extends Component {
     const { myGroups, state } = this.props;
     return (
       <ScrollView>
-        {myGroups.myGroups.length === 0 &&
-          <View>
-            <Text>No groups yet</Text>
-            <Button
-              title='Join a group now'
-              borderRadius={6}
-              backgroundColor={custom.buttonColor}
-              textStyle={custom.buttonText}
-            />
-          </View>
-        }
-        {myGroups.myGroups.length > 0 &&
+        {state.selectedGroup &&
           <FlatList
-            data={myGroups.myGroups}
-            keyExtractor={item => item.groupID}
+            data={state.selectedGroup.members}
+            extraData={state.sharedBy}
+            keyExtractor={item => item}
             renderItem={this.renderItem}
           />
         }
@@ -114,4 +102,4 @@ class SelectGroup extends Component {
   }
 }
 
-export default SelectGroup;
+export default SelectMembers;

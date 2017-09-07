@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert, Modal } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { List, ListItem, Button } from 'react-native-elements';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import moment from 'moment';
 // Components
 import BootPage from '../../components/BootPage';
+import SelectDate from './components/SelectDate';
 // Actions
 import * as AppActions from './actions';
 import style, { headerStyle, custom } from './style';
@@ -46,7 +48,7 @@ class AddOrder extends Component {
   };
 
   handlePress(row) {
-    if (row === 'SharedWith' && this.props.state.selectedGroup === null) {
+    if (row === 'SelectMembers' && this.props.state.selectedGroup === null) {
       Alert.alert('Whoops', 'You need to Select a group first');
     } else {
       this.props.navigation.navigate(row);
@@ -54,7 +56,7 @@ class AddOrder extends Component {
   }
   
   render() {
-    const { state, navigation, myGroups } = this.props;
+    const { state, navigation, myGroups, actions } = this.props;
     return (
       <ScrollView style={style.container}>
         <List style={{ margin: 0, backgroundColor: '#fff' }}>
@@ -110,40 +112,38 @@ class AddOrder extends Component {
             // hideChevron
           />
           <ListItem
-            onPress={() => Alert.alert('haha')}
+            onPress={() => actions.setDatePickerVisible(true)}
             leftIcon={
               <EvilIcons name="calendar" size={40} color={custom.iconColors[3]} style={{alignSelf: 'center'}} />
             }
             title={
               <View style={style.rowContainer}>
                 <Text style={[style.rowLabel, {color: custom.iconColors[3]}]}>Payment Date</Text>
-                {!state.orderName ? (
-                  <Text style={[style.rowValue, {color: 'gray'}]}></Text>
-                ) : (
-                <Text style={[style.rowValue, {color: '#333'}]}>{state.orderName}</Text>
-                )}
+                  <Text style={[style.rowValue, {color: '#333'}]}>{moment(state.orderDate).format('MM/DD/YYYY')}</Text>
               </View>
             }
+            rightIcon={<View style={{width: 40}}></View>}
             // hideChevron
           />
           <ListItem
-            onPress={() => Alert.alert('haha')}
+            onPress={() => this.handlePress('SelectMembers')}
             leftIcon={
               <EvilIcons name="star" size={40} color={custom.iconColors[4]} style={{alignSelf: 'center'}} />
             }
             title={
               <View style={style.rowContainer}>
-                <Text style={[style.rowLabel, {color: custom.iconColors[4]}]}>Shared With</Text>
-                {!state.orderName ? (
-                  <Text style={[style.rowValue, {color: 'gray'}]}></Text>
+                <Text style={[style.rowLabel, {color: custom.iconColors[4]}]}>Shared By</Text>
+                {state.sharedBy.length === 0 ? (
+                  <Text style={[style.rowValue, {color: 'gray'}]}>Please Select</Text>
                 ) : (
-                <Text style={[style.rowValue, {color: '#333'}]}>{state.orderName}</Text>
+                <Text style={[style.rowValue, {color: '#333'}]}>{state.sharedBy.length} people</Text>
                 )}
               </View>
             }
             // hideChevron
           />
         </List>
+        <SelectDate />
       </ScrollView>
     );
   }

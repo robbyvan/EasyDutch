@@ -15,7 +15,7 @@ export const custom = {
     fontSize: 26,
   },
   buttonColor: universal.themeColor,
-  checkMarkColor: '#a3bfb2',
+  checkMarkColor: '#be7358',
   iconStyle: {
     paddingRight: 10,
     marginTop: 3,

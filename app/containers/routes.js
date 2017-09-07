@@ -12,6 +12,7 @@ import AddOrder from './AddOrder';
 import SelectGroup from './AddOrder/components/SelectGroup';
 import SetOrderName from './AddOrder/components/SetOrderName';
 import SetPrice from './AddOrder/components/SetPrice';
+import SelectMembers from './AddOrder/components/SelectMembers';
 // Styles
 import { themeColor } from '../style';
 
@@ -39,6 +40,9 @@ const MeTab = StackNavigator({
   },
   SetPrice: {
     screen: SetPrice,
+  },
+  SelectMembers: {
+    screen: SelectMembers,
   },
   Me: {
     screen: Me,

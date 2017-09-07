@@ -5,10 +5,11 @@ const initialState = {
   selectedGroup: null,
   orderName: '',
   tempOrderName: '',
-  orderDate: moment().toDate(),
-  sharedWith: ['Anqi', 'Luyao'],
   price: -1,
   tempPrice: -1,
+  orderDate: moment().toDate(),
+  showDatePicker: false,
+  sharedBy: [], // ['Robby', 'Jon Snow', 'Daenerys', 'Sansa', 'Bran'],
 };
 
 const addOrderReducer = (state=initialState, action) => {
@@ -23,6 +24,19 @@ const addOrderReducer = (state=initialState, action) => {
       return { ...state, tempPrice: action.payload };
     case at.SET_PRICE:
       return { ...state, price: action.payload };
+    case at.SET_DATE_PICKER_VISIBLE:
+      return { ...state, showDatePicker: action.payload };
+    case at.SET_ORDER_DATE:
+      return { ...state, orderDate: action.payload };
+    case at.RESET_SHARED_BY:
+      return { ...state, sharedBy: [action.payload] };
+    case at.EDIT_SHARED_BY:
+      return {
+        ...state,
+        sharedBy: (state.sharedBy.indexOf(action.payload) === -1)
+          ? [...state.sharedBy, action.payload]
+          : state.sharedBy.filter(item => item !== action.payload),
+      }
     default:
       return state;
   }

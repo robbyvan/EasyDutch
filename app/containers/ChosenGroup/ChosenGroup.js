@@ -107,7 +107,7 @@ class Group extends Component {
     );
     return (
       <ListItem
-        onPress={() => navigation.navigate('Ha', { groupID: item.groupID, name: item.name })}
+        // onPress={() => navigation.navigate('Ha', { groupID: item.groupID, name: item.name })}
         key={item}
         title={rowContent}
         leftIcon={textAvatar}

@@ -34,3 +34,31 @@ export function setPrice(price) {
     payload: price,
   };
 }
+
+export function setDatePickerVisible(status) {
+  return {
+    type: at.SET_DATE_PICKER_VISIBLE,
+    payload: status,
+  };
+}
+
+export function setOrderDate(date) {
+  return {
+    type: at.SET_ORDER_DATE,
+    payload: date,
+  };
+}
+
+export function resetSharedBy(username) {
+  return {
+    type: at.RESET_SHARED_BY,
+    payload: username,
+  };
+}
+
+export function editSharedBy(member) {
+  return {
+    type: at.EDIT_SHARED_BY,
+    payload: member,
+  };
+}
