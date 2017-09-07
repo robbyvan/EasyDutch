@@ -28,10 +28,13 @@ const style = {
     // backgroundColor: universal.themeColor,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center'
   },
   iconText: {
     fontSize: 26,
     color: '#fff',
+    alignSelf: 'center',
+    textAlign: 'center',
   },
   // textAvatar: {
     // width: 35,

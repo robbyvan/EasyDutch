@@ -2,6 +2,27 @@ import { AsyncStorage } from 'react-native';
 import moment from 'moment';
 import * as at from '../../constants/actionTypes';
 
+// const mockGroups = [{
+//   groupID: 'odasdfina21ha',
+//   name: 'Braavos',
+//   createdAt: moment().toDate(),
+//   lastUpdated: moment().toDate(),
+//   members: ['Robby', 'Anqi', 'Luyao'],
+// }, {
+//   groupID: 'asadfanfadisd',
+//   name: 'The North',
+//   createdAt: moment().toDate(),
+//   lastUpdated: moment().toDate(),
+//   members: ['Robby', 'Anqi', 'Luyao'],
+// }, {
+//   groupID: 'vsnofdnveorie',
+//   name: 'Kingslanding',
+//   createdAt: moment().toDate(),
+//   lastUpdated: moment().toDate(),
+//   members: ['Robby', 'Anqi', 'Luyao'],
+// }
+// ];
+
 const initialState = {
   myGroups: [],
   isFetchingMyGroups: false,

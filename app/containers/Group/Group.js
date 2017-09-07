@@ -54,11 +54,11 @@ class Group extends Component {
 
   renderItem({ item, index }) {
     // const { navigation } = that.props;
-    const avatarColors = ['#C4C095', '#FFDFB5', '#9FE0B7', '#F5AFA3', '#92C3DE'];
+    const avatarColors = ['#A3BFB2', '#AAB7BF', '#B09F85', '#BABF95', '#BE7358'];
     const textAvatar = (
       <View style={[style.iconWrapper, { backgroundColor: avatarColors[index % 5] }]}>
         <Text style={style.iconText}>
-          {item.name.trim().charAt(0)}
+          {item.name.trim().charAt(0).toUpperCase()}
         </Text>
       </View>
     );
@@ -74,7 +74,7 @@ class Group extends Component {
     );
     return (
       <ListItem
-        onPress={() => that.props.navigation.navigate('ChosenGroup', { groupID: item.groupID })}
+        onPress={() => that.props.navigation.navigate('ChosenGroup', { groupID: item.groupID, name: item.name })}
         key={item.groupID}
         title={rowContent}
         leftIcon={textAvatar}
