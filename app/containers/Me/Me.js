@@ -36,7 +36,7 @@ class Me extends Component {
   render() {
     const { user } = this.props;
     const textAvatar = (
-      <View style={[style.iconWrapper, { backgroundColor: custom.themeColor }]}>
+      <View style={[style.iconWrapper, { backgroundColor: '#BE7358' }]}>
         <Text style={style.iconText}>
           {user.nickname.trim().charAt(0).toUpperCase()}
         </Text>
@@ -47,6 +47,7 @@ class Me extends Component {
         <View style={{ marginTop: 10}}>
           <List containerStyle={{marginTop: 0}}>
             <ListItem
+              onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
               leftIcon={textAvatar}
               title={user.nickname}
@@ -57,22 +58,25 @@ class Me extends Component {
           </List>
           <List>
             <ListItem
+              onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
-              leftIcon={<EvilIcons name="chart" size={30} color={custom.themeColor} style={{alignSelf: 'center'}} />}
+              leftIcon={<EvilIcons name="chart" size={30} color='#A3BFB2' style={{alignSelf: 'center'}} />}
               title='My Purchases'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
             <ListItem
+              onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
-              leftIcon={<EvilIcons name="credit-card" size={30} color={custom.themeColor} style={{alignSelf: 'center'}} />}
+              leftIcon={<EvilIcons name="credit-card" size={30} color='#B09F85' style={{alignSelf: 'center'}} />}
               title='My Bills'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
           </List>
           <List>
             <ListItem
+              onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
-              leftIcon={<EvilIcons name="gear" size={30} color={custom.themeColor} style={{alignSelf: 'center'}} />}
+              leftIcon={<EvilIcons name="gear" size={30} color='#AAB7BF' style={{alignSelf: 'center'}} />}
               title='Settings'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />

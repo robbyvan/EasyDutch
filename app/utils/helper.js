@@ -31,7 +31,7 @@ export function calculateBill(rawExpenses, user) {
   for (let item in shouldReceive) {
     totalReceive += shouldReceive[item];
   }
-  console.log('给', shouldPay, '还', shouldReceive);
+  // console.log('Pay: ', shouldPay, 'Receive', shouldReceive);
   return {
     shouldPay,
     shouldReceive, 
@@ -58,7 +58,7 @@ export function calculateTransfer(myBill, user, partner) {
   if (amount > 0) {
     return { type: 'receive', amount };
   } else if (amount < 0) {
-    return { type: 'pay', amount }
+    return { type: 'pay', amount: 0 - amount }
   } else if (amount === 0) {
     return { type: 'even', amount }
   }
