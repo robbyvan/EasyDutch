@@ -2,12 +2,7 @@ import * as at from '../../constants/actionTypes';
 import moment from 'moment';
 
 const initialState = {
-  selectedGroup: {
-    groupID: "12346",
-    lastUpdated: moment().toDate(),
-    members: ["Robby", "Anqi", "Luyao"],
-    name: "Braavos",
-  },
+  selectedGroup: null,
   orderName: '',
   tempOrderName: '',
   orderDate: moment().toDate(),

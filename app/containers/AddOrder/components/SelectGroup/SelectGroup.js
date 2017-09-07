@@ -39,7 +39,7 @@ class SelectGroup extends Component {
 
   handlePress(pressedGroup) {
     const { actions, state, navigation } = this.props;
-    if (pressedGroup.groupID !== state.selectedGroup.groupID) {
+    if (!state.selectedGroup || pressedGroup.groupID !== state.selectedGroup.groupID) {
       actions.setSelectedGroup(pressedGroup);
     }
     const backAction = NavigationActions.back({
@@ -80,7 +80,7 @@ class SelectGroup extends Component {
         title={rowContent}
         leftIcon={textAvatar}
         rightIcon={checkMark}
-        hideChevron={state.selectedGroup.groupID !== item.groupID}
+        hideChevron={!state.selectedGroup || state.selectedGroup.groupID !== item.groupID}
       />
     );
   }
