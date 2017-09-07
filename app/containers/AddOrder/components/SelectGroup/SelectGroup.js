@@ -105,6 +105,7 @@ class SelectGroup extends Component {
         {myGroups.myGroups.length > 0 &&
           <FlatList
             data={myGroups.myGroups}
+            extraData={state.selectedGroup}
             keyExtractor={item => item.groupID}
             renderItem={this.renderItem}
           />
