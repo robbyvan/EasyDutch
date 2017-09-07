@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import * as universal from '../../style';
 
 export const headerStyle = {
-  headerTitle: 'Order Information',
+  headerTitle: 'Order Info',
   headerStyle: universal.tabHeader,
   headerTintColor: '#333',
   headerTitleStyle: universal.headerTitle,
@@ -50,7 +50,7 @@ const style = {
   },
   rowValue: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 17,
     textAlign: 'right',
     alignSelf: 'center',
     color: '#333'
@@ -59,7 +59,6 @@ const style = {
     height: 30,
     width: 30,
     borderRadius: 100,
-    // borderWidth: 1,
     borderColor: universal.themeColor,
     justifyContent: 'center',
     alignItems: 'center',

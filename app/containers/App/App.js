@@ -29,20 +29,20 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.actions.asyncAppStatus();
+    // this.props.actions.asyncAppStatus();
     // AsyncStorage.clear();
   }
 
   render() {
     const { state } = this.props;
 
-    if (!state.booted) {
-      return <BootPage />;
-    }
+    // if (!state.booted) {
+    //   return <BootPage />;
+    // }
 
-    if (!state.userLoginStatus) {
-      return <Login />;
-    }
+    // if (!state.userLoginStatus) {
+    //   return <Login />;
+    // }
 
     return <Tabs />;
   }

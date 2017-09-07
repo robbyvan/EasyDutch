@@ -46,12 +46,12 @@ class AddOrder extends Component {
   };
   
   render() {
-    const { state } = this.props;
+    const { state, navigation, myGroups } = this.props;
     return (
       <ScrollView style={style.container}>
-        <List style={{margin: 0, backgroundColor: '#fff'}}>
+        <List style={{ margin: 0, backgroundColor: '#fff' }}>
           <ListItem
-            onPress={() => Alert.alert('haha')}
+            onPress={() => navigation.navigate('SelectGroup')}
             leftIcon={
               <EvilIcons name="tag" size={40} color={custom.iconColors[0]} style={{alignSelf: 'center'}} />
             }
@@ -61,14 +61,14 @@ class AddOrder extends Component {
                 {!state.selectedGroup ? (
                   <Text style={[style.rowValue, {color: 'gray'}]}>Select a Group</Text>
                 ) : (
-                <Text style={[style.rowValue, {color: '#333'}]}>{state.selectedGroup}</Text>
+                <Text style={[style.rowValue, {color: '#333'}]}>{state.selectedGroup.name}</Text>
                 )}
               </View>
             }
             // hideChevron
           />
           <ListItem
-            onPress={() => Alert.alert('haha')}
+            onPress={() => navigation.navigate('SetOrderName')}
             leftIcon={
               <EvilIcons name="cart" size={40} color={custom.iconColors[1]} style={{alignSelf: 'center'}} />
             }

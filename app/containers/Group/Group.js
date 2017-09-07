@@ -67,7 +67,7 @@ class Group extends Component {
         <Text style={[style.nameText, {flex: 1, alignSelf: 'center'}]}>
           {item.name.trim()}
         </Text>
-        <Text style={{flex: 1, alignSelf: 'center', color: 'gray'}}>
+        <Text style={{flex: 1, alignSelf: 'center', color: 'gray', textAlign: 'right'}}>
           {moment(item.lastUpdated).format('MM/DD HH:mm')}
         </Text>
       </View>

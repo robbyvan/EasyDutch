@@ -18,3 +18,6 @@ export const SET_CHOSEN_GROUP_ID = 'set_chosen_group_id';
 export const SET_CHOSEN_GROUP = 'set_chosen_group';
 export const SET_IS_FETCHING_CHOSEN_GROUP = 'set_is_fetching_chosen_group';
 export const SET_MY_BILL = 'set_my_bill';
+
+// Add Order
+export const SET_SELECTED_GROUP = 'set_selected_group';
