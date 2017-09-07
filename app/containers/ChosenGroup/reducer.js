@@ -1,11 +1,36 @@
 import * as at from '../../constants/actionTypes';
 import moment from 'moment';
 
+const mockchosenGroup = {
+  groupID: '130000198905318650',
+  name: 'Braavos',
+  members: ['Robby', 'Anqi', 'Luyao'],
+  expenses: [{
+    whoPaid: 'Robby', 
+    amount: 40,
+    sharedWith: ['Robby', 'Anqi', 'Luyao'],
+  },
+  {
+    whoPaid: 'Anqi', 
+    amount: 28,
+    sharedWith: ['Robby', 'Anqi'],
+  },
+  {
+    whoPaid: 'Robby', 
+    amount: 30,
+    sharedWith: ['Robby', 'Luyao'],
+  },
+  {
+    whoPaid: 'Luyao', 
+    amount: 20,
+    sharedWith: ['Robby', 'Luyao', 'Anqi'],
+  }],
+};
+
 const initialState = {
   chosenGroupID: '',
   chosenGroup: {},
   isFetchingChosenGroup: false,
-  // isFetchingChosenGroup: false,
   myBill: {}, // After calculating
 };
 

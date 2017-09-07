@@ -3,14 +3,44 @@ import * as at from '../../constants/actionTypes';
 import Request from '../../utils/Request';
 import { calculateBill } from '../../utils/Helper';
 
-export function setDefaultChosenGroup(chosenGroupID, user) {
+export async function setDefaultChosenGroup(chosenGroupID, user) {
+  const s = {
+  groupID: '130000198905318650',
+  name: 'Braavos',
+  members: ['Robby', 'Anqi', 'Luyao'],
+  expenses: [{
+    whoPaid: 'Robby', 
+    amount: 40,
+    sharedWith: ['Robby', 'Anqi', 'Luyao'],
+  },
+  {
+    whoPaid: 'Anqi', 
+    amount: 20,
+    sharedWith: ['Robby', 'Anqi'],
+  },
+  {
+    whoPaid: 'Robby', 
+    amount: 30,
+    sharedWith: ['Robby', 'Luyao'],
+  },
+  {
+    whoPaid: 'Luyao', 
+    amount: 20,
+    sharedWith: ['Robby', 'Luyao', 'Anqi'],
+  }],
+};
+  let sg = { "130000198905318650": s };
+  sg = JSON.stringify(sg);
+  await AsyncStorage.setItem('storedGroups', sg);
+
   return async dispatch => {
     dispatch({ type: at.SET_CHOSEN_GROUP_ID, payload: chosenGroupID });
     let storedGroups = await AsyncStorage.getItem('storedGroups');
     storedGroups = JSON.parse(storedGroups);
-    dispatch({ type: at.SET_CHOSEN_GROUP, payload: {} || storedGroups[chosenGroupID] });
-    if (storedGroups.expenses) {
-      const myBill = calculateBill(storedGroups.expenses, user);
+    console.log(storedGroups, user);
+    dispatch({ type: at.SET_CHOSEN_GROUP, payload: storedGroups[chosenGroupID] || {} });
+    if (storedGroups[chosenGroupID].expenses.length > 0) {
+      const myBill = calculateBill(storedGroups[chosenGroupID].expenses, user);
       dispatch({ type: at.SET_MY_BILL, payload: myBill });
     } else {
       dispatch({ type: at.SET_MY_BILL, payload: {} });

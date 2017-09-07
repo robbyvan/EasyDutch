@@ -1,7 +1,12 @@
 import * as at from '../../constants/actionTypes';
 
+const mockUser = {
+  username: 'Robby',
+  nickname: '罗比',
+};
+
 const initialState = {
-  user: {},
+  user: mockUser || {},
   userLoginStatus: false,
   booted: false,
 };

@@ -9,32 +9,57 @@ export function calculateBill(rawExpenses, user) {
       shouldPay[expense.whoPaid] += (expense.amount / expense.sharedWith.length)
     });
 
-  const shouldEarn = {};
+  const shouldReceive = {};
   rawExpenses
     .filter(expense => expense.whoPaid === user.username)
     .map(expense => {
       expense.sharedWith.map(partner => {
         if (partner !== user.username) {
-          if (!shouldEarn[partner]) {
-            shouldEarn[partner] = 0
+          if (!shouldReceive[partner]) {
+            shouldReceive[partner] = 0
           }
-          shouldEarn[partner] += expense.amount / expense.sharedWith.length
+          shouldReceive[partner] += expense.amount / expense.sharedWith.length
         }
       })
     });
   
   let totalPay = 0;
   for (let item in shouldPay) {
-    totalPay += shouldPay[item];
+    totalPay += shouldPay[item];  
   }
-  let totalEarn = 0;
-  for (let item in shouldEarn) {
-    totalEarn += shouldEarn[item];
+  let totalReceive = 0;
+  for (let item in shouldReceive) {
+    totalReceive += shouldReceive[item];
   }
+  console.log('给', shouldPay, '还', shouldReceive);
   return {
     shouldPay,
-    shouldEarn, 
+    shouldReceive, 
     totalPay: totalPay.toFixed(2), 
-    totalEarn: totalEarn.toFixed(2),
+    totalReceive: totalReceive.toFixed(2),
   };
+}
+
+export function calculateTransfer(myBill, user, partner) {
+  let { shouldReceive, shouldPay } = myBill;
+  if (!shouldReceive) {
+    shouldReceive = {};
+  }
+  if (!shouldPay) {
+    shouldPay = {};
+  }
+  if (!shouldReceive[partner]) {
+    shouldReceive[partner] = 0;
+  }
+  if (!shouldPay[partner]) {
+    shouldPay[partner] = 0;
+  }
+  const amount = shouldReceive[partner] - shouldPay[partner];
+  if (amount > 0) {
+    return { type: 'receive', amount };
+  } else if (amount < 0) {
+    return { type: 'pay', amount }
+  } else if (amount === 0) {
+    return { type: 'even', amount }
+  }
 }
