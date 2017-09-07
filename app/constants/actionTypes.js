@@ -35,3 +35,6 @@ export const RESET_ADD_ORDER_FORM = 'reset_add_order_form';
 // Join Group
 export const SET_JOIN_METHOD = 'set_join_method';
 export const SET_CAN_SWIPE = 'set_can_swipe';
+export const SET_GROUP_NAME = 'set_group_name';
+export const SET_GROUP_ID = 'set_group_id';
+export const SET_IS_JOINING_GROUP = 'set_is_creating_group';

@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Actions
 import Swiper from 'react-native-swiper';
+import CreateGroup from './components/CreateGroup';
+import SearchGroup from './components/SearchGroup';
 import * as AppActions from './actions';
 import style, { custom, headerStyle } from './style';
 
@@ -81,7 +83,8 @@ class JoinGroup extends Component {
           </View>
         </View>
         <View style={style.slide2}>
-          <Text style={style.text}>Beautiful</Text>
+          {state.joinMethod === 'create' && <CreateGroup navigation={navigation} />}
+          {state.joinMethod === 'search' && <SearchGroup navigation={navigation} />}
         </View>
       </Swiper>
     );

@@ -68,10 +68,8 @@ export function editSharedBy(member) {
 export function submitNewOrder(newOrder) {
   return async dispatch => {
     dispatch({ type: at.SET_IS_SUBMITTING_ORDER, payload: true });
-    console.log(newOrder);
     try {
       const response = await Request.post('/ezdutch/edit_order', { newOrder });
-      console.log('???', response);
       if (response && response.success) {
         // Success
         dispatch({ type: at.RESET_ADD_ORDER_FORM });
