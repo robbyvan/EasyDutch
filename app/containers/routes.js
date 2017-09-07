@@ -4,8 +4,11 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
 // Group
 import Group from './Group';
+import ChosenGroup from './ChosenGroup';
+import Orders from './Orders';
 // Me
 import Me from './Me';
+import AddOrder from './AddOrder';
 // Styles
 import { themeColor } from '../style';
 
@@ -13,10 +16,19 @@ const GroupTab = StackNavigator({
   Group: {
     screen: Group,
   },
+  ChosenGroup: {
+    screen: ChosenGroup,
+  },
+  Orders: {
+    screen: Orders,
+  },
 });
 
 const MeTab = StackNavigator({
-  Me: {
+  AddOrder: {
+    screen: AddOrder,
+  },
+   Me: {
     screen: Me,
   },
 });

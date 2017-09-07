@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { AsyncStorage } from 'react-native';
+import { View, Text } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Components
@@ -7,48 +7,51 @@ import BootPage from '../../components/BootPage';
 import Login from '../Login';
 import Tabs from '../routes';
 // Actions
-import * as AppActions from './actions';
+import * as OrderActions from './actions';
+
+import style, { custom, headerStyle } from './style';
 
 function mapStateToProps(store) {
   return {
-    state: store.app,
+    state: store.orders,
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(AppActions, dispatch),
+    actions: bindActionCreators(OrderActions, dispatch),
   };
 }
 
 @connect(mapStateToProps, matchDispatchToProps)
-class App extends Component {
+class Orders extends Component {
   static propTypes = {
     state: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
 
+  static navigationOptions = ({ navigation }) => {
+    return {
+      ...headerStyle,
+      // headerRight,
+      headerTitle: `${navigation.state.params.chosenGroup.name}`,
+    };
+  };
+
   componentDidMount() {
-    this.props.actions.asyncAppStatus();
-<<<<<<< HEAD
-=======
+    // this.props.actions.asyncAppStatus();
     // AsyncStorage.clear();
->>>>>>> Easy-Dutch
   }
 
   render() {
     const { state } = this.props;
 
-    if (!state.booted) {
-      return <BootPage />;
-    }
-
-    if (!state.userLoginStatus) {
-      return <Login />;
-    }
-
-    return <Tabs />;
+    return (
+      <View>
+        <Text>Orders</Text>
+      </View>
+    );
   }
 }
 
-export default App;
+export default Orders;

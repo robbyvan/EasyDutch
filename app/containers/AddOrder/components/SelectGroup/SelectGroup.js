@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { AsyncStorage } from 'react-native';
+import { View, Text } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Components
@@ -7,17 +7,17 @@ import BootPage from '../../components/BootPage';
 import Login from '../Login';
 import Tabs from '../routes';
 // Actions
-import * as AppActions from './actions';
+import * as SelectGroupActions from './actions';
 
 function mapStateToProps(store) {
   return {
-    state: store.app,
+    state: store.addOrder,
   };
 }
 
 function matchDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(AppActions, dispatch),
+    actions: bindActionCreators(SelectGroupActions, dispatch),
   };
 }
 
@@ -28,26 +28,12 @@ class App extends Component {
     actions: PropTypes.object.isRequired,
   };
 
-  componentDidMount() {
-    this.props.actions.asyncAppStatus();
-<<<<<<< HEAD
-=======
-    // AsyncStorage.clear();
->>>>>>> Easy-Dutch
-  }
-
   render() {
-    const { state } = this.props;
-
-    if (!state.booted) {
-      return <BootPage />;
-    }
-
-    if (!state.userLoginStatus) {
-      return <Login />;
-    }
-
-    return <Tabs />;
+    return (
+      <View>
+        <Text>选择组</Text>
+      </View>
+    );
   }
 }
 

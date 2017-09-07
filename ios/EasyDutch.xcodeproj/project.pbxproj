@@ -248,7 +248,11 @@
 			remoteInfo = RCTBlob;
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D51C1F371F5F0B3900A20F8F /* PBXContainerItemProxy */ = {
+=======
+		D51C1F111F5F040F00A20F8F /* PBXContainerItemProxy */ = {
+>>>>>>> Easy-Dutch
 =======
 		D51C1F111F5F040F00A20F8F /* PBXContainerItemProxy */ = {
 >>>>>>> Easy-Dutch
@@ -259,7 +263,11 @@
 			remoteInfo = "RCTBlob-tvOS";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D51C1F481F5F0B3900A20F8F /* PBXContainerItemProxy */ = {
+=======
+		D51C1F221F5F040F00A20F8F /* PBXContainerItemProxy */ = {
+>>>>>>> Easy-Dutch
 =======
 		D51C1F221F5F040F00A20F8F /* PBXContainerItemProxy */ = {
 >>>>>>> Easy-Dutch
@@ -549,7 +557,11 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				D51C1F381F5F0B3900A20F8F /* libRCTBlob-tvOS.a */,
+=======
+				D51C1F121F5F040F00A20F8F /* libRCTBlob-tvOS.a */,
+>>>>>>> Easy-Dutch
 =======
 				D51C1F121F5F040F00A20F8F /* libRCTBlob-tvOS.a */,
 >>>>>>> Easy-Dutch
@@ -558,15 +570,21 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D51C1F301F5F0B3900A20F8F /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D51C1F491F5F0B3900A20F8F /* libRNVectorIcons.a */,
 =======
+=======
+>>>>>>> Easy-Dutch
 		D51C1F0A1F5F040F00A20F8F /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				D51C1F231F5F040F00A20F8F /* libRNVectorIcons.a */,
+<<<<<<< HEAD
+>>>>>>> Easy-Dutch
+=======
 >>>>>>> Easy-Dutch
 			);
 			name = Products;
@@ -750,7 +768,11 @@
 				},
 				{
 <<<<<<< HEAD
+<<<<<<< HEAD
 					ProductGroup = D51C1F301F5F0B3900A20F8F /* Products */;
+=======
+					ProductGroup = D51C1F0A1F5F040F00A20F8F /* Products */;
+>>>>>>> Easy-Dutch
 =======
 					ProductGroup = D51C1F0A1F5F040F00A20F8F /* Products */;
 >>>>>>> Easy-Dutch
@@ -951,6 +973,7 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D51C1F381F5F0B3900A20F8F /* libRCTBlob-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -964,6 +987,8 @@
 			path = libRNVectorIcons.a;
 			remoteRef = D51C1F481F5F0B3900A20F8F /* PBXContainerItemProxy */;
 =======
+=======
+>>>>>>> Easy-Dutch
 		D51C1F121F5F040F00A20F8F /* libRCTBlob-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -976,6 +1001,9 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = D51C1F221F5F040F00A20F8F /* PBXContainerItemProxy */;
+<<<<<<< HEAD
+>>>>>>> Easy-Dutch
+=======
 >>>>>>> Easy-Dutch
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

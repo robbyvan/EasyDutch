@@ -9,6 +9,50 @@ export const headerStyle = {
   headerBackTitleStyle: universal.headerBackTitle,
 };
 
-const style = {};
+const style = {
+  container: {
+    backgroundColor: '#fff',
+  },
+  headerRight: {
+    paddingRight: 10,
+  },
+  nameText: {
+    marginLeft: 10,
+    fontSize: 18,
+    paddingLeft: 30
+  },
+  iconWrapper: {
+    height: 40,
+    width: 40,
+    borderRadius: 100,
+    // backgroundColor: universal.themeColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  iconText: {
+    fontSize: 26,
+    color: '#fff',
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  // textAvatar: {
+    // width: 35,
+    // height: 35,
+    // alignSelf: 'center',
+    // textAlign: 'center',
+    // lineHeight: 30,
+    // color: '#555',
+    // fontSize: 18,
+  // },
+};
+
+export const custom = {
+  buttonText: {
+    fontSize: 26,
+  },
+  buttonColor: universal.themeColor,
+  headerRightIcon: universal.themeColor,
+};
 
 export default style;
