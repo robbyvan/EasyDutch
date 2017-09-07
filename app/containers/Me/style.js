@@ -9,11 +9,40 @@ export const headerStyle = {
   headerBackTitleStyle: universal.headerBackTitle,
 };
 
+export const custom = {
+  buttonText: {
+    fontSize: 26,
+  },
+  buttonColor: universal.themeColor,
+  headerRightIcon: universal.themeColor,
+  themeColor: universal.themeColor,
+  avatarColors: ['#a3bfb2', '#aab7bf', '#b09f85', '#babf95', '#be7358'],
+};
+
 const style = {
-  myButton: {
-    width: 100,
-    height: 40,
-    backgroundColor: universal.themeColor,
+  container: {
+    backgroundColor: '#e9e9ef',
+    flex: 1,
+  },
+  nameText: {
+    marginLeft: 10,
+    fontSize: 18,
+    paddingLeft: 30
+  },
+  iconWrapper: {
+    height: 55,
+    width: 55,
+    borderRadius: 5,
+    // backgroundColor: universal.themeColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  iconText: {
+    fontSize: 26,
+    color: '#fff',
+    alignSelf: 'center',
+    textAlign: 'center',
   },
 };
 
