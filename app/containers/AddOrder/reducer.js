@@ -10,6 +10,7 @@ const initialState = {
   orderDate: moment().toDate(),
   showDatePicker: false,
   sharedBy: [], // ['Robby', 'Jon Snow', 'Daenerys', 'Sansa', 'Bran'],
+  isSubmittingOrder: false,
 };
 
 const addOrderReducer = (state=initialState, action) => {
@@ -37,6 +38,10 @@ const addOrderReducer = (state=initialState, action) => {
           ? [...state.sharedBy, action.payload]
           : state.sharedBy.filter(item => item !== action.payload),
       }
+    case at.SET_IS_SUBMITTING_ORDER:
+      return { ...state, isSubmittingOrder: action.payload };
+    case at.RESET_ADD_ORDER_FORM:
+      return { ...initialState };
     default:
       return state;
   }

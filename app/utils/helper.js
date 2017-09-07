@@ -63,3 +63,29 @@ export function calculateTransfer(myBill, user, partner) {
     return { type: 'even', amount }
   }
 }
+
+export function validateNewOrder(newOrder) {
+  let result = {
+    success: false,
+    msg: '',
+  };
+  if (!newOrder.group) {
+    result.msg = 'Please Select a Group.';
+    return result;
+  }
+  if (!newOrder.orderName) {
+    result.msg = 'Order name is required.';
+    return result;
+  }
+  if (newOrder.price === -1) {
+    result.msg = 'Price is required.';
+    return result;
+  }
+  if (newOrder.sharedBy.length < 2) {
+    result.msg = 'At least 2 people should share the new purchase.';
+    return result;
+  }
+  result.success = true;
+  result.msg = 'Success.';
+  return result;
+}

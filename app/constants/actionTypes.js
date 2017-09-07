@@ -29,3 +29,9 @@ export const SET_ORDER_DATE = 'set_order_date';
 export const SET_DATE_PICKER_VISIBLE = 'set_date_picker_visible';
 export const RESET_SHARED_BY = 'reset_shared_by';
 export const EDIT_SHARED_BY = 'edit_shared_by';
+export const SET_IS_SUBMITTING_ORDER = 'set_is_submitting_order';
+export const RESET_ADD_ORDER_FORM = 'reset_add_order_form';
+
+// Join Group
+export const SET_JOIN_METHOD = 'set_join_method';
+export const SET_CAN_SWIPE = 'set_can_swipe';

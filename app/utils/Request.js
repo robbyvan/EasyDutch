@@ -9,7 +9,7 @@ request.get = (api, params) => new Promise(async (resolve, reject) => {
   if (params) {
     completeUrl = `${completeUrl}?${queryString.stringify(params)}`
   }
-  console.log('发送GET至:', completeUrl);
+  console.log('GET from:', completeUrl);
 
   let myHeaders = {};
 
@@ -32,7 +32,7 @@ request.get = (api, params) => new Promise(async (resolve, reject) => {
   //开始计时, 20秒内无response视为无法连接
   const requestTimer = setTimeout(function() {
     reject("Can't connect to server now, try it again later.");
-  }, 20000);
+  }, 10000);
 
   // resolve(
   fetch(completeUrl, options)
@@ -45,6 +45,41 @@ request.get = (api, params) => new Promise(async (resolve, reject) => {
       console.error(error);
     })
   // );
+});
+
+request.post = (api, body) => new Promise(async (resolve, reject) => {
+  const completeUrl = Config.server + api;
+  
+  myHeaders = new Headers({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  });
+
+  console.log(body);
+
+  const options = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(body),
+  };
+
+  console.log('POST TO: ', completeUrl, options);
+
+  const requestTimer = setTimeout(() => {
+    reject({ success: false, msg: 'Can\'t connect to server now, try it again later.' });
+  }, 10000);
+
+  resolve(
+    fetch(completeUrl, options)
+      .then((res) => {
+        clearTimeout(requestTimer);
+        return res.json();
+      })
+      .then(responseJson => responseJson)
+      .catch((error) => {
+        console.error(error);
+      }),
+  );
 });
 
 request.login = (api, body) => new Promise((resolve, reject) => {
@@ -65,7 +100,7 @@ request.login = (api, body) => new Promise((resolve, reject) => {
   // const that = this;
   const requestTimer = setTimeout(function(){
     reject({ success: false, msg: 'Can\'t connect to server now, try it again later.' });
-  }, 20000);
+  }, 10000);
 
   resolve(
     fetch(completeUrl, options)

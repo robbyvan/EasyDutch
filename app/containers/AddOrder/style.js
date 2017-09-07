@@ -15,6 +15,10 @@ export const custom = {
   evenColor: 'gray',
   themeColor: universal.themeColor,
   iconColors: ['#A3BFB2', '#AAB7BF', '#B09F85', '#BABF95', '#BE7358'],
+  buttonText: {
+    fontSize: 22,
+  },
+  buttonColor: universal.themeColor,
 };
 
 const style = {
@@ -68,6 +72,30 @@ const style = {
     fontSize: 26,
     color: universal.themeColor,
   },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    alignSelf: 'center',
+    width: 200,
+    textAlign: 'center',
+    padding: 10,
+    borderRadius: 10,
+    color: custom.themeColor,
+    fontSize: 24,
+    borderWidth: 1,
+    borderColor: custom.themeColor
+  },
+  indicator: {
+    // alignSelf: 'center',
+    // width: 200,
+    // padding: 10,
+    // borderRadius: 10,
+    // borderWidth: 1,
+    // borderColor: custom.themeColor
+  }
 };
 
 export default style;
