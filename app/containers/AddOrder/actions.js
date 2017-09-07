@@ -7,3 +7,16 @@ export function setSelectedGroup(group) {
   };
 }
 
+export function setTempOrderName(name) {
+  return {
+    type: at.SET_TEMP_ORDER_NAME,
+    payload: name,
+  };
+}
+
+export function setOrderName(name) {
+  return {
+    type: at.SET_ORDER_NAME,
+    payload: name,
+  };
+}

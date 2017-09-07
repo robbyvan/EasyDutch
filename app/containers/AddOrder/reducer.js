@@ -19,6 +19,10 @@ const addOrderReducer = (state=initialState, action) => {
   switch (action.type) {
     case at.SET_SELECTED_GROUP:
       return { ...state, selectedGroup: action.payload };
+    case at.SET_TEMP_ORDER_NAME:
+      return { ...state, tempOrderName: action.payload };
+    case at.SET_ORDER_NAME:
+      return { ...state, orderName: action.payload };
     default:
       return state;
   }

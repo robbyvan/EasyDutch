@@ -9,6 +9,8 @@ import Orders from './Orders';
 // Me
 import Me from './Me';
 import AddOrder from './AddOrder';
+import SelectGroup from './AddOrder/components/SelectGroup';
+import SetOrderName from './AddOrder/components/SetOrderName';
 // Styles
 import { themeColor } from '../style';
 
@@ -28,7 +30,13 @@ const MeTab = StackNavigator({
   AddOrder: {
     screen: AddOrder,
   },
-   Me: {
+  SelectGroup: {
+    screen: SelectGroup,
+  },
+  SetOrderName: {
+    screen: SetOrderName,
+  },
+  Me: {
     screen: Me,
   },
 });
