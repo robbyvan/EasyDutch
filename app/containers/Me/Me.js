@@ -60,15 +60,15 @@ class Me extends Component {
             <ListItem
               onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
-              leftIcon={<EvilIcons name="chart" size={30} color='#A3BFB2' style={{alignSelf: 'center'}} />}
-              title='My Purchases'
+              leftIcon={<EvilIcons name="cart" size={30} color='#A3BFB2' style={{alignSelf: 'center'}} />}
+              title='Purchases'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
             <ListItem
               onPress={() => null}
               containerStyle={{backgroundColor: '#fff'}}
               leftIcon={<EvilIcons name="credit-card" size={30} color='#B09F85' style={{alignSelf: 'center'}} />}
-              title='My Bills'
+              title='Bills'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
           </List>
