@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ScrollView, FlatList } from 'react-native';
+import { View, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -90,16 +90,15 @@ class SelectGroup extends Component {
   render() {
     const { myGroups, state } = this.props;
     return (
-      <ScrollView>
+      <ScrollView
+        style={{backgroundColor: '#fff'}}
+        contentContainerStyle={style.container}
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustContentInsets={false}
+      >
         {myGroups.myGroups.length === 0 &&
-          <View>
-            <Text>No groups yet</Text>
-            <Button
-              title='Join a group now'
-              borderRadius={6}
-              backgroundColor={custom.buttonColor}
-              textStyle={custom.buttonText}
-            />
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontSize: 24, color: 'gray'}}>Whoops, no groups yet.</Text>
           </View>
         }
         {myGroups.myGroups.length > 0 &&

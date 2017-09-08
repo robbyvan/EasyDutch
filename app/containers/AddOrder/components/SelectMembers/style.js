@@ -30,6 +30,7 @@ export const custom = {
 const style = {
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   listContainer: {
     flex: 1,

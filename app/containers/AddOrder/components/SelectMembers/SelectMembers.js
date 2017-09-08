@@ -47,7 +47,6 @@ class SelectMembers extends Component {
   }
 
   renderItem({ item, index }) {
-    console.log('??', item);
     const { state, navigation, user } = that.props;
     const avatarColors = ['#A3BFB2', '#AAB7BF', '#B09F85', '#BABF95', '#BE7358'];
     const textAvatar = (
@@ -88,7 +87,12 @@ class SelectMembers extends Component {
   render() {
     const { myGroups, state } = this.props;
     return (
-      <ScrollView>
+      <ScrollView
+        style={{backgroundColor: '#fff'}}
+        contentContainerStyle={style.container}
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustContentInsets={false}
+      >
         {state.selectedGroup &&
           <FlatList
             data={state.selectedGroup.members}

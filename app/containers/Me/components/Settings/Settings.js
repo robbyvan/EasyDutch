@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, AsyncStorage, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, AsyncStorage, Alert, TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -31,7 +31,7 @@ class Settings extends Component {
 
   render() {
     return(
-      <View>
+      <ScrollView>
         <List>
           <ListItem
             onPress={() => null}
@@ -71,7 +71,7 @@ class Settings extends Component {
             hideChevron
           />
         </List>
-      </View>
+      </ScrollView>
     );
   }
 }

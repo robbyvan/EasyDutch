@@ -60,6 +60,17 @@ const style = {
     alignSelf: 'center',
     textAlign: 'center',
   },
+  buttonText: {
+    alignSelf: 'center',
+    width: 200,
+    textAlign: 'center',
+    padding: 10,
+    borderRadius: 10,
+    color: custom.themeColor,
+    fontSize: 24,
+    borderWidth: 1,
+    borderColor: custom.themeColor
+  },
 };
 
 export default style;
