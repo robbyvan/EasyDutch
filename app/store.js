@@ -1,15 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import promiseMiddleware from 'redux-promise';
 import createReducer from './reducers';
 
-const logger = createLogger();
+// const logger = createLogger();
 
 const middlewares = [
   thunk,
   promiseMiddleware,
-  logger,
+  // logger,
 ];
 
 const configureStore = (initialState = Object.assign({})) => {
