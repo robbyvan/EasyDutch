@@ -62,7 +62,7 @@ class CreateGroup extends Component {
               />
             </View>
           </View>
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 2 }}>
             <TouchableOpacity
               onPress={() => this.props.swiper.scrollBy(-1)}
               activeOpacity={0.6}
