@@ -34,7 +34,10 @@ class Me extends Component {
   static navigationOptions = () => ({ ...headerStyle });
 
   render() {
-    const { user } = this.props;
+    const { user, navigation } = this.props;
+    if (!user || !user.token) {
+      return null;
+    }
     const textAvatar = (
       <View style={[style.iconWrapper, { backgroundColor: '#BE7358' }]}>
         <Text style={style.iconText}>
@@ -54,18 +57,19 @@ class Me extends Component {
               titleStyle={{marginLeft: 30, fontSize: 20}}
               subtitle={`EasyDutch: ${user.username}`}
               subtitleStyle={{marginLeft: 30, fontSize: 16, fontWeight: 'normal'}}
+              hideChevron
             />
           </List>
           <List>
             <ListItem
-              onPress={() => null}
+              onPress={() => navigation.navigate("Purchases")}
               containerStyle={{backgroundColor: '#fff'}}
               leftIcon={<EvilIcons name="cart" size={30} color='#A3BFB2' style={{alignSelf: 'center'}} />}
               title='Purchases'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
             <ListItem
-              onPress={() => null}
+              onPress={() => Alert.alert('Sorry', 'Developer is still working on it :)')}
               containerStyle={{backgroundColor: '#fff'}}
               leftIcon={<EvilIcons name="credit-card" size={30} color='#B09F85' style={{alignSelf: 'center'}} />}
               title='Bills'
@@ -74,7 +78,7 @@ class Me extends Component {
           </List>
           <List>
             <ListItem
-              onPress={() => null}
+              onPress={() => navigation.navigate("Settings")}
               containerStyle={{backgroundColor: '#fff'}}
               leftIcon={<EvilIcons name="gear" size={30} color='#AAB7BF' style={{alignSelf: 'center'}} />}
               title='Settings'

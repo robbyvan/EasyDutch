@@ -27,21 +27,14 @@ class CreateGroup extends Component {
     actions: PropTypes.object.isRequired,
   };
 
-  constructor() {
-    super();
-  }
-
   handleCreate() {
     const { state, actions, navigation } = this.props;
     if (!state.groupName) {
-      Alert.alert('Whoops', 'You need to give your group a name.');
+      Alert.alert('Whoops', "Group name should not be empty.");
       return;
     }
     actions.createGroup(state.groupName);
-    const backAction = NavigationActions.back({
-      key: navigation.state.key,
-    });
-    navigation.dispatch(backAction);
+    this.props.swiper.scrollBy(1);
   }
 
   render() {
@@ -52,20 +45,30 @@ class CreateGroup extends Component {
             <Text style={style.joinTitle}>I want to name it...</Text>
           </View>
         <View style={style.contentContainer}>
-          <View style={style.inputContainer}>
-            <TextInput
-              // autoFocus
-              underlineColorAndroid="rgba(0, 0, 0, 0)"
-              autoCorrect={false}
-              placeholder="Choose a good name"
-              defaultValue={state.groupName}
-              keyboardType="default"
-              maxLength={16}
-              style={style.textStyle}
-              returnKeyType="done"
-              onSubmitEditing={() => this.handleCreate()}
-              onChangeText={text => actions.setGroupName(text)}
-            />
+          <View style={style.inputWrapper}>
+            <View style={style.inputContainer}>
+              <TextInput
+                // autoFocus
+                underlineColorAndroid="rgba(0, 0, 0, 0)"
+                autoCorrect={false}
+                placeholder="Choose a good name"
+                defaultValue={state.groupName}
+                keyboardType="default"
+                maxLength={16}
+                style={style.textStyle}
+                returnKeyType="done"
+                onSubmitEditing={() => this.handleCreate()}
+                onChangeText={text => actions.setGroupName(text)}
+              />
+            </View>
+          </View>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity
+              onPress={() => this.props.swiper.scrollBy(-1)}
+              activeOpacity={0.6}
+            >
+              <Text style={style.backButton}>Back</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

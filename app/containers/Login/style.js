@@ -14,7 +14,7 @@ const style = StyleSheet.create({
   },
   logoText: {
     fontSize: 30,
-    color: '#333',
+    color: '#A3BFB2',
   },
   inputContainer: {
     width: universal.width,

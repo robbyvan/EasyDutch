@@ -50,9 +50,10 @@ class Group extends Component {
   }
 
   componentWillMount() {
-    const { actions, state, user } = this.props;
-    actions.setDefaultChosenGroup('130000198905318650', user);
-    actions.fetchChosenGroup('130000198905318650', user);
+    const { actions, state, user, navigation } = this.props;
+    const chosenGroup = navigation.state.params.groupID;
+    actions.setDefaultChosenGroup('12345', user); // since no server at present, so I hardcode the group id here.
+    actions.fetchChosenGroup('12345', user);
   }
 
   renderItem({ item, index }) {
@@ -119,78 +120,31 @@ class Group extends Component {
           <Text style={[style.status, { color: custom.receiveColor }]}>Should Receive ${result || '0'} in Total.</Text>
         </View>
       );
-    } else if (result === 0) {
+    } else if (result < 0) {
       status = (
-        <View style={[style.statusContainer, { borderColor: custom.evenColor }]}>
-          <Text style={[style.status, { color: custom.evenColor }]}>No Need to Pay or Receive</Text>
+        <View style={[style.statusContainer, { borderColor: custom.payColor }]}>
+          <Text style={[style.status, { color: custom.payColor }]}>Should Pay ${result || '0'} in Total </Text>
         </View>
       );
     } else {
-       status = (
-        <View style={[style.statusContainer, { borderColor: custom.payColor }]}>
-          <Text style={[style.status, { color: custom.payColor }]}>Should Pay ${result || '0'} in Total </Text>
+      status = (
+        <View style={[style.statusContainer, { borderColor: custom.evenColor }]}>
+          <Text style={[style.status, { color: custom.evenColor }]}>No Need to Pay or Receive</Text>
         </View>
       );
     }
     return (
       <View
         style={style.container}
-      >
-
-        
-        
+      > 
         <View style={{flex: 1}}>
           {status}
-          {null && <View style={style.title}>
-                      <Text style={style.titleText}>Transactions</Text>
-                    </View>}
           <FlatList
             data={state.chosenGroup.members}
             keyExtractor={item => item}
             renderItem={this.renderItem}
           />
         </View>
-
-        <Modal
-          visible={false}
-          onRequstClose={() => null}
-        >
-          <View style={{flex: 1}}>
-            <View style={style.title}>
-              <Text style={style.titleText}>Brief</Text>
-            </View>
-              {state.myBill &&
-                <List style={{margin: 0, backgroundColor: '#fff'}}>
-                  <ListItem
-                    onPress={() => Alert.alert('haha')}
-                    leftIcon={<EvilIcons name="arrow-right" size={40} color={custom.receiveColor} style={{alignSelf: 'center'}} />}
-                    title={
-                      <View style={style.rowContainer}>
-                        <Text style={[style.rowLabel, { color: custom.receiveColor }]}>Receive</Text>
-                        <Text style={style.rowValue}>${state.myBill.totalReceive  || '0'}</Text>
-                      </View>
-                    }
-                    hideChevron
-                  />
-                  <ListItem
-                    onPress={() => Alert.alert('haha')}
-                    leftIcon={<EvilIcons name="arrow-left" size={40} color={custom.payColor} style={{alignSelf: 'center'}}/>}
-                    title={
-                      <View style={style.rowContainer}>
-                        <Text style={[style.rowLabel, { color: custom.payColor }]}>Pay</Text>
-                        <Text style={style.rowValue}>${state.myBill.totalPay || '0'}</Text>
-                      </View>
-                    }
-                    hideChevron
-                  />
-                </List>
-              }
-          </View>  
-        </Modal>
-        
-        
-        
-
       </View>
     );
   }

@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
-import * as universal from '../../style';
+import * as universal from '../../../../style';
 
 export const headerStyle = {
-  headerTitle: 'Groups',
+  headerTitle: 'Me',
   headerStyle: universal.tabHeader,
   headerTintColor: '#333',
   headerTitleStyle: universal.headerTitle,
   headerBackTitleStyle: universal.headerBackTitle,
+  tabBarVisible: false,
 };
 
 const style = {
@@ -18,9 +19,9 @@ const style = {
     paddingRight: 10,
   },
   nameText: {
-    marginLeft: 10,
+    // marginLeft: 10,
     fontSize: 18,
-    paddingLeft: 30
+    // paddingLeft: 30
   },
   iconWrapper: {
     height: 40,
@@ -36,15 +37,6 @@ const style = {
     color: '#fff',
     alignSelf: 'center',
     textAlign: 'center',
-  },
-  buttonText: {
-    alignSelf: 'center',
-    width: 200,
-    textAlign: 'center',
-    padding: 10,
-    borderRadius: 10,
-    fontSize: 24,
-    borderWidth: 1,
   },
   // textAvatar: {
     // width: 35,

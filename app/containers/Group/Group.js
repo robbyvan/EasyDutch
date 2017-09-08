@@ -49,8 +49,8 @@ class Group extends Component {
   }
 
   componentWillMount() {
-    this.props.actions.setDefaultGroups();
-    this.props.actions.fetchMyGroups();
+    // this.props.actions.setDefaultGroups();
+    // this.props.actions.fetchMyGroups();
   }
 
   renderItem({ item, index }) {
@@ -69,7 +69,7 @@ class Group extends Component {
           {item.name.trim()}
         </Text>
         <Text style={{flex: 1, alignSelf: 'center', color: 'gray', textAlign: 'right'}}>
-          {moment(item.lastUpdated).format('MM/DD HH:mm')}
+          {moment(item.lastUpdated).format('MMM DD  HH:mm')}
         </Text>
       </View>
     );
@@ -88,13 +88,14 @@ class Group extends Component {
   }
 
   render() {
-    const { user, state } = this.props;
+    const { user, state, navigation } = this.props;
     if (state.isFetchingMyGroups && !state.isRefreshingMyGroups) {
       return <BootPage />
     }
     return (
       <ScrollView
-        style={style.container}
+        style={{backgroundColor: '#fff'}}
+        contentContainerStyle={style.container}
         refreshControl={
           <RefreshControl
             refreshing={state.isFetchingMyGroups}
@@ -107,14 +108,16 @@ class Group extends Component {
         automaticallyAdjustContentInsets={false}
       >
         {state.myGroups.length === 0 &&
-          <View>
-            <Text>No groups yet</Text>
-            <Button
-              title='Join a group now'
-              borderRadius={6}
-              backgroundColor={custom.buttonColor}
-              textStyle={custom.buttonText}
-            />
+          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontSize: 24, color: 'gray'}}>Whoops, no groups yet.</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('JoinGroup')}
+              activeOpacity={0.6}
+              style={{marginTop: 30}}
+            >
+              <Text style={[style.buttonText, {color: '#b09f85', borderColor: '#b09f85'}]}>Join Now!</Text>
+            </TouchableOpacity>
+
           </View>
         }
         {state.myGroups.length > 0 &&

@@ -50,7 +50,7 @@ class Login extends Component {
     return (
       <View style={style.container}>
         <View style={style.logo}>
-          <Text style={style.logoText}>EasyDutch</Text>
+          <Text style={style.logoText}>Easy Dutch</Text>
         </View>
 
         <View style={style.inputContainer}>
@@ -102,7 +102,7 @@ class Login extends Component {
 
         <View style={style.loginHint}>
           <TouchableOpacity>
-            <Text style={style.hintText}>Sign In With Problems?</Text>
+            <Text style={style.hintText}>Sign in With Problems?</Text>
           </TouchableOpacity>
         </View>
 

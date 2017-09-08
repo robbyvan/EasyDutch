@@ -44,7 +44,6 @@ export function createGroup(groupName) {
         AsyncStorage.setItem('myGroups', backup);
         dispatch({ type: at.SET_GROUP_NAME, payload: '' });
         dispatch({ type: at.SET_GROUP_ID, payload: '' });
-        Alert.alert('Success!');
       } else {
         // probably server got problem
         Alert.alert('Whoops', 'Seems something is wrong with server, try again later.');
@@ -61,17 +60,14 @@ export function searchGroup(groupID) {
   return async dispatch => {
     dispatch({ type: at.SET_IS_JOINING_GROUP, payload: true });
     try {
-      const response = await Request.post('/ezdutch/search_group', { groupName });
-      console.log(response);
+      const response = await Request.post('/ezdutch/search_group', { groupID });
       if (response && response.success) {
         // Success
         dispatch({ type: at.SET_MY_GROUPS, payload: response.data.myGroups });
         const backup = JSON.stringify(response.data.myGroups)
-        console.log(backup);
         AsyncStorage.setItem('myGroups', backup);
         dispatch({ type: at.SET_GROUP_NAME, payload: '' });
         dispatch({ type: at.SET_GROUP_ID, payload: '' });
-        Alert.alert('Success!');
       } else {
         // probably server got problem
         Alert.alert('Whoops', 'Seems something is wrong with server, try again later.');

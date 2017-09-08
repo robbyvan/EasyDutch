@@ -29,7 +29,7 @@ const style = {
   container: {
     flex: 1,
     // backgroundColor: '#fff',
-    // justifyContent: 'center',
+    // justifyContent: 'flex-end',
     // alignItems: 'center',
   },
   joinTitleContainer: {
@@ -47,6 +47,9 @@ const style = {
     // justifyContent: 'center', 
     marginTop: 20,
     alignItems: 'center'
+  },
+  inputWrapper: {
+    flex: 1,
   },
   inputContainer: {
     backgroundColor: '#fff',
@@ -75,6 +78,13 @@ const style = {
     borderRadius: 10,
     fontSize: 24,
     borderWidth: 1,
+  },
+  backButton: {
+    justifyContent: 'center',
+    // marginTop: 40,
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#be7358',
   },
 };
 

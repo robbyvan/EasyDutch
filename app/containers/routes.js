@@ -15,6 +15,9 @@ import SetPrice from './AddOrder/components/SetPrice';
 import SelectMembers from './AddOrder/components/SelectMembers';
 // Me
 import Me from './Me';
+import Purchases from './Me/components/Purchases';
+import Settings from './Me/components/Settings';
+
 // Styles
 import { themeColor } from '../style';
 
@@ -54,6 +57,12 @@ const AddOrderTab = StackNavigator({
 const MeTab = StackNavigator({
   Me: {
     screen: Me,
+  },
+  Purchases: {
+    screen: Purchases,
+  },
+  Settings: {
+    screen: Settings,
   },
 });
 
