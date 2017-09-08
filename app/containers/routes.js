@@ -77,7 +77,7 @@ const Tabs = TabNavigator({
     screen: AddOrderTab,
     navigationOptions: {
       tabBarLabel: 'New Purchase',
-      tabBarIcon: ({ focused }) => tabBarIcon(focused, 'cart'),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, 'plus'),
     },
   },
   MeTab: {

@@ -10,7 +10,7 @@ export async function setDefaultChosenGroup(chosenGroupID, user) {
     storedGroups = JSON.parse(storedGroups);
     console.log(storedGroups, user);
     dispatch({ type: at.SET_CHOSEN_GROUP, payload: storedGroups[chosenGroupID] || {} });
-    if (storedGroups[chosenGroupID] && storedGroups[chosenGroupID].expenses.length > 0) {
+    if (storedGroups && storedGroups[chosenGroupID] && storedGroups[chosenGroupID].expenses.length > 0) {
       const myBill = calculateBill(storedGroups[chosenGroupID].expenses, user);
       dispatch({ type: at.SET_MY_BILL, payload: myBill });
     } else {
