@@ -48,6 +48,9 @@ const style = {
     marginTop: 20,
     alignItems: 'center'
   },
+  inputWrapper: {
+    flex: 1,
+  },
   inputContainer: {
     backgroundColor: '#fff',
     borderWidth: 1,
@@ -75,6 +78,13 @@ const style = {
     borderRadius: 10,
     fontSize: 24,
     borderWidth: 1,
+  },
+  backButton: {
+    justifyContent: 'center',
+    // marginTop: 40,
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#b09f85',
   },
 };
 

@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // Actions
 import Swiper from 'react-native-swiper';
+import BootPage from '../../components/BootPage';
 import CreateGroup from './components/CreateGroup';
 import SearchGroup from './components/SearchGroup';
 import * as AppActions from './actions';
@@ -51,11 +52,12 @@ class JoinGroup extends Component {
         loop={false}
         removeClippedSubviews={false}
         loadMinimal={true}
-        scrollEnabled={state.canSwipe}
+        // scrollEnabled={state.canSwipe}
+        scrollEnabled={false}
         index={0}
         ref={swiper => {this._swiper = swiper;}}
-        onIndexChanged={ index => index === 0 ? this.props.actions.setCanSwipe(false) : null}
-      >
+        onIndexChanged={ index => (index === 0) || (index === 2) ? this.props.actions.setCanSwipe(false) : null}
+      > 
         <View style={style.slide1}>
           <View style={style.joinTitleContainer}>
             <Text style={style.joinTitle}>Join a Group</Text>
@@ -83,8 +85,22 @@ class JoinGroup extends Component {
           </View>
         </View>
         <View style={style.slide2}>
-          {state.joinMethod === 'create' && <CreateGroup navigation={navigation} />}
-          {state.joinMethod === 'search' && <SearchGroup navigation={navigation} />}
+          {state.joinMethod === 'create' && <CreateGroup navigation={navigation} swiper={this._swiper} />}
+          {state.joinMethod === 'search' && <SearchGroup navigation={navigation} swiper={this._swiper} />}
+        </View>
+        <View style={style.slide3}>
+          {state.isJoiningGroup ? (<BootPage />) : (
+            <View style={{flex: 1, justifyContent: 'center'}}>
+              <Text style={style.successTitle}>You have Joined the Group!</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.dispatch(backAction)}
+                  activeOpacity={0.6}
+                  style={{marginTop: 30}}
+                >
+                  <Text style={[style.closeButton, {color: '#a3bfb2', borderColor: '#a3bfb2'}]}>Done</Text>
+                </TouchableOpacity>
+            </View>
+            )}
         </View>
       </Swiper>
     );

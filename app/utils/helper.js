@@ -1,4 +1,5 @@
 export function calculateBill(rawExpenses, user) {
+  console.log(rawExpenses);
   const shouldPay = {};
   rawExpenses
     .filter(expense => expense.whoPaid !== user.username && expense.sharedWith.indexOf(user.username) !== -1)
@@ -31,7 +32,7 @@ export function calculateBill(rawExpenses, user) {
   for (let item in shouldReceive) {
     totalReceive += shouldReceive[item];
   }
-  // console.log('Pay: ', shouldPay, 'Receive', shouldReceive);
+  console.log('Pay: ', shouldPay, 'Receive', shouldReceive);
   return {
     shouldPay,
     shouldReceive, 

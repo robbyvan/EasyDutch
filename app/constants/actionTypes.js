@@ -38,3 +38,9 @@ export const SET_CAN_SWIPE = 'set_can_swipe';
 export const SET_GROUP_NAME = 'set_group_name';
 export const SET_GROUP_ID = 'set_group_id';
 export const SET_IS_JOINING_GROUP = 'set_is_creating_group';
+
+// Me
+export const SET_MY_PURCHASES = 'set_my_purchases';
+export const SET_IS_FETCHING_MY_PURCHASES = 'set_is_fetching_my_purchases';
+export const SET_IS_REFRESHING_MY_PURCHASES = 'set_is_refreshing_my_purchases';
+

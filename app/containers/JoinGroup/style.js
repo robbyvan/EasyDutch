@@ -80,8 +80,21 @@ const style = {
     marginTop: 40,
     fontSize: 18,
     textAlign: 'center',
-    color: custom.themeColor
-  }
+    color: '#a3bfb2'
+  },
+  successTitle: {
+    fontSize: 26,
+    color: '#a3bfb2'
+  },
+  closeButton: {
+    alignSelf: 'center',
+    width: 200,
+    textAlign: 'center',
+    padding: 10,
+    borderRadius: 10,
+    fontSize: 24,
+    borderWidth: 1,
+  },
 };
 
 export default style;

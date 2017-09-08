@@ -50,9 +50,10 @@ class Group extends Component {
   }
 
   componentWillMount() {
-    const { actions, state, user } = this.props;
-    actions.setDefaultChosenGroup('130000198905318650', user);
-    actions.fetchChosenGroup('130000198905318650', user);
+    const { actions, state, user, navigation } = this.props;
+    const chosenGroup = navigation.state.params.groupID;
+    actions.setDefaultChosenGroup('12345', user); // since no server at present, so I hardcode the group id here.
+    actions.fetchChosenGroup('12345', user);
   }
 
   renderItem({ item, index }) {
@@ -119,16 +120,16 @@ class Group extends Component {
           <Text style={[style.status, { color: custom.receiveColor }]}>Should Receive ${result || '0'} in Total.</Text>
         </View>
       );
-    } else if (result === 0) {
+    } else if (result < 0) {
       status = (
-        <View style={[style.statusContainer, { borderColor: custom.evenColor }]}>
-          <Text style={[style.status, { color: custom.evenColor }]}>No Need to Pay or Receive</Text>
+        <View style={[style.statusContainer, { borderColor: custom.payColor }]}>
+          <Text style={[style.status, { color: custom.payColor }]}>Should Pay ${result || '0'} in Total </Text>
         </View>
       );
     } else {
-       status = (
-        <View style={[style.statusContainer, { borderColor: custom.payColor }]}>
-          <Text style={[style.status, { color: custom.payColor }]}>Should Pay ${result || '0'} in Total </Text>
+      status = (
+        <View style={[style.statusContainer, { borderColor: custom.evenColor }]}>
+          <Text style={[style.status, { color: custom.evenColor }]}>No Need to Pay or Receive</Text>
         </View>
       );
     }
