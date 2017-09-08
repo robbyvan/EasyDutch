@@ -4,16 +4,12 @@ import Config from './Config';
 
 const request = {};
 
-<<<<<<< HEAD
-request.get = (api, params) => new Promise(async(resolve, rejcet) => {
-=======
 request.get = (api, params) => new Promise(async (resolve, reject) => {
->>>>>>> Easy-Dutch
   let completeUrl = Config.server + api;
   if (params) {
     completeUrl = `${completeUrl}?${queryString.stringify(params)}`
   }
-  console.log('发送GET至:', completeUrl);
+  console.log('GET from:', completeUrl);
 
   let myHeaders = {};
 
@@ -24,48 +20,19 @@ request.get = (api, params) => new Promise(async (resolve, reject) => {
     myHeaders = new Headers({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-<<<<<<< HEAD
-      // 'Cube-Authorization': currentUser.token,
-=======
->>>>>>> Easy-Dutch
     });
   }else {
     reject({msg: '当前未登录'});
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> Easy-Dutch
   const options = {
     method: 'GET',
     headers: myHeaders,
   };
 
   //开始计时, 20秒内无response视为无法连接
-<<<<<<< HEAD
-  const requestTimer = setTimeout(() => {
-    reject({success: false, msg: '暂时无法连接到服务器, 稍后再试试吧'});
-  }, 20000); 
-
-  resolve(
-    fetch(completeUrl, options)
-      .then((res) => {
-        clearTimeout(requestTimer);
-        return res.json();
-      })
-      .then((responseJson) => responseJson)
-      .catch((error) => {
-          console.error(error);
-      })
-  );
-});
-
-request.login = (api, body) => new Promise((resolve, reject) => {
-  // const currentUser = getUser();
-=======
   const requestTimer = setTimeout(function() {
     reject("Can't connect to server now, try it again later.");
-  }, 20000);
+  }, 10000);
 
   // resolve(
   fetch(completeUrl, options)
@@ -80,8 +47,42 @@ request.login = (api, body) => new Promise((resolve, reject) => {
   // );
 });
 
+request.post = (api, body) => new Promise(async (resolve, reject) => {
+  const completeUrl = Config.server + api;
+  
+  myHeaders = new Headers({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  });
+
+  console.log(body);
+
+  const options = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(body),
+  };
+
+  console.log('POST TO: ', completeUrl, options);
+
+  const requestTimer = setTimeout(() => {
+    reject({ success: false, msg: 'Can\'t connect to server now, try it again later.' });
+  }, 10000);
+
+  resolve(
+    fetch(completeUrl, options)
+      .then((res) => {
+        clearTimeout(requestTimer);
+        return res.json();
+      })
+      .then(responseJson => responseJson)
+      .catch((error) => {
+        console.error(error);
+      }),
+  );
+});
+
 request.login = (api, body) => new Promise((resolve, reject) => {
->>>>>>> Easy-Dutch
   const completeUrl = Config.server + api;
 
   const myHeaders = new Headers({
@@ -96,15 +97,10 @@ request.login = (api, body) => new Promise((resolve, reject) => {
   };
   console.log('POST to: ', completeUrl, options);
 
-<<<<<<< HEAD
-  const requestTimer = setTimeout(() => {
-    reject({ success: 'false', msg: 'Can\'t connect to server now, try it again later.' });
-=======
   // const that = this;
   const requestTimer = setTimeout(function(){
     reject({ success: false, msg: 'Can\'t connect to server now, try it again later.' });
->>>>>>> Easy-Dutch
-  }, 20000);
+  }, 10000);
 
   resolve(
     fetch(completeUrl, options)

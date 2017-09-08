@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Alert, ScrollView, RefreshControl, FlatLi
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { List, ListItem, Button } from 'react-native-elements';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import moment from 'moment';
 import BootPage from '../../components/BootPage';
@@ -31,10 +32,10 @@ class Group extends Component {
     actions: PropTypes.object.isRequired,
   };
 
-  static navigationOptions = () => {
+  static navigationOptions = ({ navigation }) => {
     const headerRight = (
       <TouchableOpacity
-        onPress={() => console.log('Find group by groupID')}
+        onPress={() => navigation.navigate('JoinGroup')}
         style={style.headerRight}
       >
         <Entypo name="plus" size={25} style={{ color: custom.headerRightIcon }} />
@@ -67,7 +68,7 @@ class Group extends Component {
         <Text style={[style.nameText, {flex: 1, alignSelf: 'center'}]}>
           {item.name.trim()}
         </Text>
-        <Text style={{flex: 1, alignSelf: 'center', color: 'gray'}}>
+        <Text style={{flex: 1, alignSelf: 'center', color: 'gray', textAlign: 'right'}}>
           {moment(item.lastUpdated).format('MM/DD HH:mm')}
         </Text>
       </View>

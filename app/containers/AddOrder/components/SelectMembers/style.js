@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
-import * as universal from '../../style';
+import * as universal from '../../../../style';
 
 export const headerStyle = {
-  headerTitle: 'Me',
+  headerTitle: 'Groups',
   headerStyle: universal.tabHeader,
   headerTintColor: '#333',
   headerTitleStyle: universal.headerTitle,
   headerBackTitleStyle: universal.headerBackTitle,
+  tabBarVisible: false,
 };
 
 export const custom = {
@@ -14,26 +15,41 @@ export const custom = {
     fontSize: 26,
   },
   buttonColor: universal.themeColor,
-  headerRightIcon: universal.themeColor,
-  themeColor: universal.themeColor,
+  checkMarkColor: '#be7358',
+  iconStyle: {
+    paddingRight: 10,
+    marginTop: 3,
+    alignSelf: 'center',
+  },
   avatarColors: ['#a3bfb2', '#aab7bf', '#b09f85', '#babf95', '#be7358'],
+  receiveColor: '#6da674',
+  payColor: '#d96e5d',
+  evenColor: 'gray',
 };
 
 const style = {
   container: {
-    backgroundColor: '#e9e9ef',
     flex: 1,
+  },
+  listContainer: {
+    flex: 1,
+    marginTop: 10,
+    padding: 0,
+  },
+  valueText: {
+    textAlign: 'left',
+    marginLeft: 10,
   },
   nameText: {
     marginLeft: 10,
     fontSize: 18,
-    paddingLeft: 30
+    paddingLeft: 50
   },
   iconWrapper: {
-    height: 55,
-    width: 55,
-    borderRadius: 5,
-    // backgroundColor: universal.themeColor,
+    height: 40,
+    width: 40,
+    borderRadius: 100,
+    marginLeft: 10,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center'

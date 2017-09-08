@@ -50,7 +50,7 @@ class Login extends Component {
     return (
       <View style={style.container}>
         <View style={style.logo}>
-          <Text style={style.logoText}>GoDutch</Text>
+          <Text style={style.logoText}>EasyDutch</Text>
         </View>
 
         <View style={style.inputContainer}>

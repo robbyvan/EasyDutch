@@ -12,6 +12,7 @@ export const headerStyle = {
 const style = {
   container: {
     backgroundColor: '#fff',
+    flex: 1,
   },
   headerRight: {
     paddingRight: 10,

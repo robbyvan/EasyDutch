@@ -5,6 +5,7 @@ import myGroupsRecuder from './containers/Group/reducer';
 import chosenGroupReducer from './containers/ChosenGroup/reducer';
 import ordersReducer from './containers/Orders/reducer';
 import addOrderReducer from './containers/AddOrder/reducer';
+import joinGroupReducer from './containers/JoinGroup/reducer';
 
 export default function createReducer() {
   return combineReducers({
@@ -14,5 +15,6 @@ export default function createReducer() {
     chosenGroup: chosenGroupReducer,
     orders: ordersReducer,
     addOrder: addOrderReducer,
+    joinGroup: joinGroupReducer,
   });
 }

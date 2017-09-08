@@ -30,10 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.actions.asyncAppStatus();
-<<<<<<< HEAD
-=======
     // AsyncStorage.clear();
->>>>>>> Easy-Dutch
   }
 
   render() {
