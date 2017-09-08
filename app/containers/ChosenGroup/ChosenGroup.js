@@ -135,62 +135,15 @@ class Group extends Component {
     return (
       <View
         style={style.container}
-      >
-
-        
-        
+      > 
         <View style={{flex: 1}}>
           {status}
-          {null && <View style={style.title}>
-                      <Text style={style.titleText}>Transactions</Text>
-                    </View>}
           <FlatList
             data={state.chosenGroup.members}
             keyExtractor={item => item}
             renderItem={this.renderItem}
           />
         </View>
-
-        <Modal
-          visible={false}
-          onRequstClose={() => null}
-        >
-          <View style={{flex: 1}}>
-            <View style={style.title}>
-              <Text style={style.titleText}>Brief</Text>
-            </View>
-              {state.myBill &&
-                <List style={{margin: 0, backgroundColor: '#fff'}}>
-                  <ListItem
-                    onPress={() => Alert.alert('haha')}
-                    leftIcon={<EvilIcons name="arrow-right" size={40} color={custom.receiveColor} style={{alignSelf: 'center'}} />}
-                    title={
-                      <View style={style.rowContainer}>
-                        <Text style={[style.rowLabel, { color: custom.receiveColor }]}>Receive</Text>
-                        <Text style={style.rowValue}>${state.myBill.totalReceive  || '0'}</Text>
-                      </View>
-                    }
-                    hideChevron
-                  />
-                  <ListItem
-                    onPress={() => Alert.alert('haha')}
-                    leftIcon={<EvilIcons name="arrow-left" size={40} color={custom.payColor} style={{alignSelf: 'center'}}/>}
-                    title={
-                      <View style={style.rowContainer}>
-                        <Text style={[style.rowLabel, { color: custom.payColor }]}>Pay</Text>
-                        <Text style={style.rowValue}>${state.myBill.totalPay || '0'}</Text>
-                      </View>
-                    }
-                    hideChevron
-                  />
-                </List>
-              }
-          </View>  
-        </Modal>
-        
-        
-        
-
       </View>
     );
   }
