@@ -64,7 +64,7 @@ class Me extends Component {
             <ListItem
               onPress={() => navigation.navigate("Purchases")}
               containerStyle={{backgroundColor: '#fff'}}
-              leftIcon={<EvilIcons name="cart" size={30} color='#A3BFB2' style={{alignSelf: 'center'}} />}
+              leftIcon={<EvilIcons name="cart" size={30} color='#BABF95' style={{alignSelf: 'center'}} />}
               title='Purchases'
               titleStyle={{marginLeft: 20, fontSize: 18}}
             />
