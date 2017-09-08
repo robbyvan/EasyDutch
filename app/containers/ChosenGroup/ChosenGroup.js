@@ -38,16 +38,8 @@ class Group extends Component {
   };
 
   static navigationOptions = ({ navigation }) => {
-    const headerRight = (
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Orders', { chosenGroup: that.props.state.chosenGroup })}
-        style={style.headerRight}
-      >
-        <Text style={style.headerRightText}>Orders</Text>
-      </TouchableOpacity>);
     return {
       ...headerStyle,
-      headerRight,
       headerTitle: `${navigation.state.params.name}`,
     };
   };
@@ -107,7 +99,6 @@ class Group extends Component {
     );
     return (
       <ListItem
-        // onPress={() => navigation.navigate('Ha', { groupID: item.groupID, name: item.name })}
         key={item}
         title={rowContent}
         leftIcon={textAvatar}
