@@ -34,7 +34,7 @@ class Orders extends Component {
     return {
       ...headerStyle,
       // headerRight,
-      headerTitle: `${navigation.state.params.chosenGroup.name}`,
+      headerTitle: `${navigation.state.params.chosenGroup}`,
     };
   };
 

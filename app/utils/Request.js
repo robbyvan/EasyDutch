@@ -31,7 +31,7 @@ request.get = (api, params) => new Promise(async (resolve, reject) => {
 
   //开始计时, 20秒内无response视为无法连接
   const requestTimer = setTimeout(function() {
-    reject("Can't connect to server now, try it again later.");
+    reject("暂时无法连接到服务器, 过会再试试吧");
   }, 10000);
 
   // resolve(

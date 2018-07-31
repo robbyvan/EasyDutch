@@ -58,6 +58,7 @@ class Group extends Component {
 
   renderItem({ item, index }) {
     const { state, navigation, user } = that.props;
+    console.log('item is:', item);
     if (item === user.username) {
       return null;
     }
@@ -103,6 +104,7 @@ class Group extends Component {
         key={item}
         title={rowContent}
         leftIcon={textAvatar}
+        onPress={() => that.props.navigation.navigate('Orders', { chosenGroup: item })}
       />
     );
   }
